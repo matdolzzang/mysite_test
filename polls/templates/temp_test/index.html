@@ -1,0 +1,32 @@
+{% extends "temp_test/base.html" %}
+{% block title %} 설문 조사 {% endblock %}
+
+{% block content %}
+		<div class = "container">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td><b>질문</b></td>
+						<td><b>날짜/시간</b></td>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- <tr>								# ㅡ> 렌더링 하기 전에 
+						<td>무슨 음식을 좋아하나요?</td>		# ㅡ> render(request, 'temp_test/index.html')
+						<td>2018-7-7</td>						
+					</tr>
+					<tr>
+						<td>무슨 음악을 좋아하나요?</td>
+						<td>2018-6-7</td>
+					</tr> -->
+					{% for question in questions %}         <!-- ㅡ> 템플릿 문법. (context 를 렌더링하고나서) -->
+						<tr>
+							<td>{{ question.question_txt }}</td>
+							<td>{{ question.pub_date }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+{% endblock %}
+

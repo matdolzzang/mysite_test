@@ -1,0 +1,22 @@
+{% if latest_question_list %}
+	<ul>
+	{% for question in latest_question_list %}
+		<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_txt }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p> 데이터 존재하지 않음.</p>
+{% endif %}
+<!-- 
+{% url ''} ㅡ> url 태그를 이용하여 이름공간을 지정한 것.
+polls/urls.py 에 path 에 지정된 name 을 이용한 것. -->
+
+<!-- {% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %} -->
